@@ -1,5 +1,4 @@
 package com.sih.timetable.timetable;
-  // match your package name
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,9 +9,15 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-            .authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .csrf(csrf -> csrf.disable()) // disable CSRF
+            .authorizeHttpRequests(auth -> auth
+                .anyRequest().permitAll() // allow ALL requests (GET + POST)
+            )
+            .formLogin(form -> form.disable()) // disable default login
+            .httpBasic(httpBasic -> httpBasic.disable()); // disable basic auth
+
         return http.build();
     }
 }

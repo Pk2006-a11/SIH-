@@ -1,0 +1,183 @@
+/* General Reset */
+/* src/main/resources/static/admin/admin-login.html
+src/main/resources/static/teacher/teacher-login.html */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  position: relative;
+  background: linear-gradient(135deg, #1E1E2F, #2196F3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  overflow: hidden;
+  color: #2C3E50;
+}
+
+/* Blurred background shapes */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+body::before {
+  width: 350px;
+  height: 350px;
+  top: -80px;
+  left: -80px;
+  background: #4CAF50; /* Green blob */
+}
+
+body::after {
+  width: 400px;
+  height: 400px;
+  bottom: -100px;
+  right: -100px;
+  background: #FFC107; /* Amber blob */
+}
+
+/* Container for login options */
+.login-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  width: 90%;
+  max-width: 800px;
+  z-index: 1; /* above background */
+}
+
+.login-box {
+  background: rgba(244, 247, 246, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: #2C3E50;
+  font-size: 18px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+}
+
+.login-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+/* Different themes */
+.admin {
+  border-top: 6px solid #4CAF50; /* Green */
+}
+
+.teacher {
+  border-top: 6px solid #2196F3; /* Blue */
+}
+
+/* Login Form Page */
+.form-container {
+  background: rgba(244, 247, 246, 0.92);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  color: #2196F3;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #7F8C8D;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 50px; /* pill-shaped button */
+  background: linear-gradient(135deg, #4CAF50, #2196F3); /* green → blue gradient */
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
+  transition: all 0.35s ease-in-out;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(33, 150, 243, 0.5);
+  background: linear-gradient(135deg, #2196F3, #4CAF50); /* reversed gradient */
+}
+
+/* subtle glowing ripple effect */
+.btn::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 30%);
+  transform: scale(0);
+  transition: transform 0.5s ease;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.btn:active::after {
+  transform: scale(1);
+  transition: transform 0s;
+}
+
+
+.form-container p {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.form-container a {
+  text-decoration: none;
+  color: #3e3e3e;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    grid-template-columns: 1fr;
+  }
+}
