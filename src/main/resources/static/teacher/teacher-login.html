@@ -7,29 +7,22 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <div class="form-container">
-    <h2>Teacher Login</h2>
-    <form action="/teacher/login" method="post">
-      <div class="input-group">
-        <label for="teacher-username">Username</label>
-        <input type="text" name="username" id="teacher-username" placeholder="Enter Teacher Username" required>
-      </div>
-      <div class="input-group">
-        <label for="teacher-password">Password</label>
-        <input type="password" name="password" id="teacher-password" placeholder="Enter Password" required>
-      </div>
-      <button class="btn" type="submit">Login</button>
-    </form>
-    <p><a href="/index.html">⬅ Back to Login Options</a></p>
-
-    <!-- Optional error message -->
-    <p style="color:red;">
-      <script>
-        if (window.location.search.includes("error")) {
-          document.write("Invalid Teacher username or password!");
-        }
-      </script>
-    </p>
-  </div>
+  <main>
+    <div class="form-container">
+      <h2>Teacher Login</h2>
+      <form>
+        <div class="input-group">
+          <label for="teacher-username">Username</label>
+          <input type="text" id="teacher-username" placeholder="Enter Teacher Username">
+        </div>
+        <div class="input-group">
+          <label for="teacher-password">Password</label>
+          <input type="password" id="teacher-password" placeholder="Enter Password">
+        </div>
+        <button class="btn" type="submit">Login</button>
+      </form>
+      <p><a href="/index.html">⬅ Back to Login Options</a></p>
+    </div>
+  </main>
 </body>
 </html>
